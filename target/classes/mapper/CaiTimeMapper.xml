@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fzu.demo.web.mapper.CaiTimeDao">
+	<sql id="caiTimeColumn">
+		<![CDATA[id,open_date,sort_no,open_num,zu_third_position123,zu_third_position124,zu_third_position125,zu_third_position134,zu_third_position135,zu_third_position145,
+		zu_third_position234,zu_third_position235,zu_third_position245,zu_third_position345,zu_five]]>
+	</sql>
+	<resultMap type="com.fzu.demo.common.caiutils.CqTimeLottery" id="caiResultMap">
+		<result column="id" property="id" />
+		<result column="open_date" property="openDate" />
+		<result column="sort_no" property="sortNo" />
+		<result column="open_num" property="openNum" />
+		<result column="zu_third_position123" property="zuThirdPosition123" />
+		<result column="zu_third_position124" property="zuThirdPosition124" />
+		<result column="zu_third_position125" property="zuThirdPosition125" />
+		<result column="zu_third_position134" property="zuThirdPosition134" />
+		<result column="zu_third_position135" property="zuThirdPosition135" />
+		<result column="zu_third_position145" property="zuThirdPosition145" />
+		<result column="zu_third_position234" property="zuThirdPosition234" />
+		<result column="zu_third_position235" property="zuThirdPosition235" />
+		<result column="zu_third_position245" property="zuThirdPosition245" />
+		<result column="zu_third_position345" property="zuThirdPosition345" />
+		<result column="zu_five" property="zuFive" />
+	</resultMap>
+	<insert parameterType="com.fzu.demo.common.caiutils.CqTimeLottery" id="insertSelectiveCaiTime">
+		INSERT INTO cq_time_lottery
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="openDate !=null">open_date,</if>
+			<if test="sortNo !=null and sortNo != ''">sort_no,</if>
+			<if test="openNum !=null and openNum != ''">open_num,</if>
+			<if test="zuThirdPosition123 !=null and zuThirdPosition123 != ''">zu_third_position123,</if>
+			<if test="zuThirdPosition124 !=null and zuThirdPosition124 != ''">zu_third_position124,</if>
+			<if test="zuThirdPosition125 !=null and zuThirdPosition125 != ''">zu_third_position125,</if>
+			<if test="zuThirdPosition134 !=null and zuThirdPosition134 != ''">zu_third_position134,</if>
+			<if test="zuThirdPosition135 !=null and zuThirdPosition135 != ''">zu_third_position135,</if>
+			<if test="zuThirdPosition145 !=null and zuThirdPosition145 != ''">zu_third_position145,</if>
+			<if test="zuThirdPosition234 !=null and zuThirdPosition234 != ''">zu_third_position234,</if>
+			<if test="zuThirdPosition235 !=null and zuThirdPosition235 != ''">zu_third_position235,</if>
+			<if test="zuThirdPosition245 !=null and zuThirdPosition245 != ''">zu_third_position245,</if>
+			<if test="zuThirdPosition345 !=null and zuThirdPosition345 != ''">zu_third_position345,</if>
+			<if test="zuFive !=null and zuFive != ''">zu_five</if>
+		</trim>
+		<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+			<if test="openDate !=null">#{openDate,jdbcType=INTEGER},</if>
+			<if test="sortNo !=null and sortNo != ''">#{sortNo,jdbcType=CHAR},</if>
+			<if test="openNum !=null and openNum != ''">#{openNum,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition123 !=null and zuThirdPosition123 != ''">#{zuThirdPosition123,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition124 !=null and zuThirdPosition124 != ''">#{zuThirdPosition124,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition125 !=null and zuThirdPosition125 != ''">#{zuThirdPosition125,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition134 !=null and zuThirdPosition134 != ''">#{zuThirdPosition134,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition135 !=null and zuThirdPosition135 != ''">#{zuThirdPosition135,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition145 !=null and zuThirdPosition145 != ''">#{zuThirdPosition145,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition234 !=null and zuThirdPosition234 != ''">#{zuThirdPosition234,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition235 !=null and zuThirdPosition235 != ''">#{zuThirdPosition235,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition245 !=null and zuThirdPosition245 != ''">#{zuThirdPosition245,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition345 !=null and zuThirdPosition345 != ''">#{zuThirdPosition345,jdbcType=CHAR},</if>
+			<if test="zuFive !=null and zuFive != ''">#{zuFive,jdbcType=CHAR}</if>
+		</trim>
+	</insert>
+	<update parameterType="com.fzu.demo.common.caiutils.CqTimeLottery" id="updateCaiTime ">
+		UPDATE cq_time_lottery
+		<set>
+			<if test="id !=null">id=#{id,jdbcType=BIGINT},</if>
+			<if test="openDate !=null">open_date=#{openDate,jdbcType=INTEGER},</if>
+			<if test="sortNo !=null and sortNo != ''">sort_no=#{sortNo,jdbcType=CHAR},</if>
+			<if test="openNum !=null and openNum != ''">open_num=#{openNum,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition123 !=null and zuThirdPosition123 != ''">zu_third_position123=#{zuThirdPosition123,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition124 !=null and zuThirdPosition124 != ''">zu_third_position124=#{zuThirdPosition124,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition125 !=null and zuThirdPosition125 != ''">zu_third_position125=#{zuThirdPosition125,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition134 !=null and zuThirdPosition134 != ''">zu_third_position134=#{zuThirdPosition134,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition135 !=null and zuThirdPosition135 != ''">zu_third_position135=#{zuThirdPosition135,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition145 !=null and zuThirdPosition145 != ''">zu_third_position145=#{zuThirdPosition145,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition234 !=null and zuThirdPosition234 != ''">zu_third_position234=#{zuThirdPosition234,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition235 !=null and zuThirdPosition235 != ''">zu_third_position235=#{zuThirdPosition235,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition245 !=null and zuThirdPosition245 != ''">zu_third_position245=#{zuThirdPosition245,jdbcType=CHAR},</if>
+			<if test="zuThirdPosition345 !=null and zuThirdPosition345 != ''">zu_third_position345=#{zuThirdPosition345,jdbcType=CHAR},</if>
+			<if test="zuFive !=null and zuFive != ''">zu_five=#{zuFive,jdbcType=CHAR}</if>
+		</set>
+	</update>
+	<insert parameterType="com.fzu.demo.common.caiutils.CqTimeLottery" id="insertCaiTime">
+		INSERT INTO cq_time_lottery(open_date, sort_no, open_num,
+		zu_third_position123, zu_third_position124, zu_third_position125,
+		zu_third_position134, zu_third_position135, zu_third_position145,
+		zu_third_position234, zu_third_position235, zu_third_position245,
+		zu_third_position345, zu_five )
+		VALUES (#{openDate, jdbcType=INTEGER},
+		#{sortNo, jdbcType=CHAR}, #{openNum,
+		jdbcType=CHAR},
+		#{zuThirdPosition123, jdbcType=CHAR},
+		#{zuThirdPosition124,
+		jdbcType=CHAR},
+		#{zuThirdPosition125, jdbcType=CHAR},
+		#{zuThirdPosition134, jdbcType=CHAR},
+		#{zuThirdPosition135,
+		jdbcType=CHAR}, #{zuThirdPosition145,
+		jdbcType=CHAR},
+		#{zuThirdPosition234, jdbcType=CHAR}, #{zuThirdPosition235,
+		jdbcType=CHAR},
+		#{zuThirdPosition245, jdbcType=CHAR},
+		#{zuThirdPosition345,
+		jdbcType=CHAR}, #{zuFive, jdbcType=CHAR} )
+	</insert>
+	
+	 <!-- 后台 查询举报评论列表  -->
+    <select id="queryCaiTimeList" parameterType="java.lang.Integer" resultMap="caiResultMap">
+		SELECT <include refid="caiTimeColumn" /> FROM cq_time_lottery WHERE open_date=#{openDate,jdbcType=INTEGER} ORDER BY id desc 
+    </select >
+    <select id="queryLastestCaiTime" resultMap="caiResultMap">
+    	SELECT <include refid="caiTimeColumn" /> FROM cq_time_lottery ORDER BY id desc  limit 1
+    </select >
+    
+    <insert id="insertCaiTimeByBatch" parameterType="java.util.List">
+        INSERT INTO cq_time_lottery(open_date, sort_no, open_num,
+		zu_third_position123, zu_third_position124, zu_third_position125,
+		zu_third_position134, zu_third_position135, zu_third_position145,
+		zu_third_position234, zu_third_position235, zu_third_position245,
+		zu_third_position345, zu_five )
+		VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+             (#{item.openDate, jdbcType=INTEGER},
+			#{item.sortNo, jdbcType=CHAR}, #{item.openNum,
+			jdbcType=CHAR},
+			#{item.zuThirdPosition123, jdbcType=CHAR},
+			#{item.zuThirdPosition124,
+			jdbcType=CHAR},
+			#{item.zuThirdPosition125, jdbcType=CHAR},
+			#{item.zuThirdPosition134, jdbcType=CHAR},
+			#{item.zuThirdPosition135,
+			jdbcType=CHAR}, #{item.zuThirdPosition145,
+			jdbcType=CHAR},
+			#{item.zuThirdPosition234, jdbcType=CHAR}, #{item.zuThirdPosition235,
+			jdbcType=CHAR},
+			#{item.zuThirdPosition245, jdbcType=CHAR},
+			#{item.zuThirdPosition345,
+			jdbcType=CHAR}, #{item.zuFive, jdbcType=CHAR})
+        </foreach> 
+     </insert>
+</mapper>

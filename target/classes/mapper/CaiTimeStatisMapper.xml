@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fzu.demo.web.mapper.CaiTimeStatisDao">
+	<sql id="caiTimeStaColumn">
+		<![CDATA[id,open_date,zu_third_position123_count,zu_third_position123_bao_count,zu_third_position124_count,zu_third_position124_bao_count,zu_third_position125_count,zu_third_position125_bao_count,zu_third_position134_count,zu_third_position134_bao_count,
+		zu_third_position135_count,zu_third_position135_bao_count,zu_third_position145_count,zu_third_position145_bao_count,zu_third_position234_count,zu_third_position234_bao_count,zu_third_position235_count,zu_third_position235_bao_count,zu_third_position245_count,zu_third_position245_bao_count,
+		zu_third_position345_count,zu_third_position345_bao_count,zu_five20_acount,zu_five30_acount,zu_five10_acount,zu_five5_acount,zu_five120_acount]]>
+	</sql>
+	<resultMap type="com.fzu.demo.common.caiutils.CaiTimeStatis"
+		id="caiStaResultMap">
+		<result column="id" property="id" />
+		<result column="open_date" property="openDate" />
+		<result column="zu_third_position123_count" property="zuThirdPosition123Count" />
+		<result column="zu_third_position123_bao_count" property="zuThirdPosition123BaoCount" />
+		<result column="zu_third_position124_count" property="zuThirdPosition124Count" />
+		<result column="zu_third_position124_bao_count" property="zuThirdPosition124BaoCount" />
+		<result column="zu_third_position125_count" property="zuThirdPosition125Count" />
+		<result column="zu_third_position125_bao_count" property="zuThirdPosition125BaoCount" />
+		<result column="zu_third_position134_count" property="zuThirdPosition134Count" />
+		<result column="zu_third_position134_bao_count" property="zuThirdPosition134BaoCount" />
+		<result column="zu_third_position135_count" property="zuThirdPosition135Count" />
+		<result column="zu_third_position135_bao_count" property="zuThirdPosition135BaoCount" />
+		<result column="zu_third_position145_count" property="zuThirdPosition145Count" />
+		<result column="zu_third_position145_bao_count" property="zuThirdPosition145BaoCount" />
+		<result column="zu_third_position234_count" property="zuThirdPosition234Count" />
+		<result column="zu_third_position234_bao_count" property="zuThirdPosition234BaoCount" />
+		<result column="zu_third_position235_count" property="zuThirdPosition235Count" />
+		<result column="zu_third_position235_bao_count" property="zuThirdPosition235BaoCount" />
+		<result column="zu_third_position245_count" property="zuThirdPosition245Count" />
+		<result column="zu_third_position245_bao_count" property="zuThirdPosition245BaoCount" />
+		<result column="zu_third_position345_count" property="zuThirdPosition345Count" />
+		<result column="zu_third_position345_bao_count" property="zuThirdPosition345BaoCount" />
+		<result column="zu_five20_acount" property="zuFive20Acount" />
+		<result column="zu_five30_acount" property="zuFive30Acount" />
+		<result column="zu_five10_acount" property="zuFive10Acount" />
+		<result column="zu_five5_acount" property="zuFive5Acount" />
+		<result column="zu_five120_acount" property="zuFive120Acount" />
+	</resultMap>
+	<insert parameterType="com.fzu.demo.common.caiutils.CaiTimeStatis"
+		id="insertSelectiveCaiTimeStatis">
+		INSERT INTO cq_time_lottery_statistics
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id !=null">ID,</if>
+			<if test="openDate !=null">OPEN_DATE,</if>
+			<if test="zuThirdPosition123Count !=null">ZU_THIRD_POSITION123_COUNT,</if>
+			<if test="zuThirdPosition123BaoCount !=null">ZU_THIRD_POSITION123_BAO_COUNT,</if>
+			<if test="zuThirdPosition124Count !=null">ZU_THIRD_POSITION124_COUNT,</if>
+			<if test="zuThirdPosition124BaoCount !=null">ZU_THIRD_POSITION124_BAO_COUNT,</if>
+			<if test="zuThirdPosition125Count !=null">ZU_THIRD_POSITION125_COUNT,</if>
+			<if test="zuThirdPosition125BaoCount !=null">ZU_THIRD_POSITION125_BAO_COUNT,</if>
+			<if test="zuThirdPosition134Count !=null">ZU_THIRD_POSITION134_COUNT,</if>
+			<if test="zuThirdPosition134BaoCount !=null">ZU_THIRD_POSITION134_BAO_COUNT,</if>
+			<if test="zuThirdPosition135Count !=null">ZU_THIRD_POSITION135_COUNT,</if>
+			<if test="zuThirdPosition135BaoCount !=null">ZU_THIRD_POSITION135_BAO_COUNT,</if>
+			<if test="zuThirdPosition145Count !=null">ZU_THIRD_POSITION145_COUNT,</if>
+			<if test="zuThirdPosition145BaoCount !=null">ZU_THIRD_POSITION145_BAO_COUNT,</if>
+			<if test="zuThirdPosition234Count !=null">ZU_THIRD_POSITION234_COUNT,</if>
+			<if test="zuThirdPosition234BaoCount !=null">ZU_THIRD_POSITION234_BAO_COUNT,</if>
+			<if test="zuThirdPosition235Count !=null">ZU_THIRD_POSITION235_COUNT,</if>
+			<if test="zuThirdPosition235BaoCount !=null">ZU_THIRD_POSITION235_BAO_COUNT,</if>
+			<if test="zuThirdPosition245Count !=null">ZU_THIRD_POSITION245_COUNT,</if>
+			<if test="zuThirdPosition245BaoCount !=null">ZU_THIRD_POSITION245_BAO_COUNT,</if>
+			<if test="zuThirdPosition345Count !=null">ZU_THIRD_POSITION345_COUNT,</if>
+			<if test="zuThirdPosition345BaoCount !=null">ZU_THIRD_POSITION345_BAO_COUNT,</if>
+			<if test="zuFive20Acount !=null">ZU_FIVE20_ACOUNT,</if>
+			<if test="zuFive30Acount !=null">ZU_FIVE30_ACOUNT,</if>
+			<if test="zuFive10Acount !=null">ZU_FIVE10_ACOUNT,</if>
+			<if test="zuFive5Acount !=null">ZU_FIVE5_ACOUNT,</if>
+			<if test="zuFive120Acount !=null">ZU_FIVE120_ACOUNT</if>
+		</trim>
+		<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+			<if test="id !=null">#{id,jdbcType=BIGINT},</if>
+			<if test="openDate !=null">#{openDate,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition123Count !=null">#{zuThirdPosition123Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition123BaoCount !=null">#{zuThirdPosition123BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition124Count !=null">#{zuThirdPosition124Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition124BaoCount !=null">#{zuThirdPosition124BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition125Count !=null">#{zuThirdPosition125Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition125BaoCount !=null">#{zuThirdPosition125BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition134Count !=null">#{zuThirdPosition134Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition134BaoCount !=null">#{zuThirdPosition134BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition135Count !=null">#{zuThirdPosition135Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition135BaoCount !=null">#{zuThirdPosition135BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition145Count !=null">#{zuThirdPosition145Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition145BaoCount !=null">#{zuThirdPosition145BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition234Count !=null">#{zuThirdPosition234Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition234BaoCount !=null">#{zuThirdPosition234BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition235Count !=null">#{zuThirdPosition235Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition235BaoCount !=null">#{zuThirdPosition235BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition245Count !=null">#{zuThirdPosition245Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition245BaoCount !=null">#{zuThirdPosition245BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition345Count !=null">#{zuThirdPosition345Count,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition345BaoCount !=null">#{zuThirdPosition345BaoCount,jdbcType=INTEGER},</if>
+			<if test="zuFive20Acount !=null">#{zuFive20Acount,jdbcType=INTEGER},</if>
+			<if test="zuFive30Acount !=null">#{zuFive30Acount,jdbcType=INTEGER},</if>
+			<if test="zuFive10Acount !=null">#{zuFive10Acount,jdbcType=INTEGER},</if>
+			<if test="zuFive5Acount !=null">#{zuFive5Acount,jdbcType=INTEGER},</if>
+			<if test="zuFive120Acount !=null">#{zuFive120Acount,jdbcType=INTEGER}</if>
+		</trim>
+	</insert>
+	<update parameterType="com.fzu.demo.common.caiutils.CaiTimeStatis"
+		id="updateCaiTime ">
+		UPDATE cq_time_lottery_statistics
+		<set>
+			<if test="id !=null">ID=#{id,jdbcType=BIGINT},</if>
+			<if test="openDate !=null">OPEN_DATE=#{openDate,jdbcType=INTEGER},</if>
+			<if test="zuThirdPosition123Count !=null">ZU_THIRD_POSITION123_COUNT=#{zuThirdPosition123Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition123BaoCount !=null">ZU_THIRD_POSITION123_BAO_COUNT=#{zuThirdPosition123BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition124Count !=null">ZU_THIRD_POSITION124_COUNT=#{zuThirdPosition124Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition124BaoCount !=null">ZU_THIRD_POSITION124_BAO_COUNT=#{zuThirdPosition124BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition125Count !=null">ZU_THIRD_POSITION125_COUNT=#{zuThirdPosition125Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition125BaoCount !=null">ZU_THIRD_POSITION125_BAO_COUNT=#{zuThirdPosition125BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition134Count !=null">ZU_THIRD_POSITION134_COUNT=#{zuThirdPosition134Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition134BaoCount !=null">ZU_THIRD_POSITION134_BAO_COUNT=#{zuThirdPosition134BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition135Count !=null">ZU_THIRD_POSITION135_COUNT=#{zuThirdPosition135Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition135BaoCount !=null">ZU_THIRD_POSITION135_BAO_COUNT=#{zuThirdPosition135BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition145Count !=null">ZU_THIRD_POSITION145_COUNT=#{zuThirdPosition145Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition145BaoCount !=null">ZU_THIRD_POSITION145_BAO_COUNT=#{zuThirdPosition145BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition234Count !=null">ZU_THIRD_POSITION234_COUNT=#{zuThirdPosition234Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition234BaoCount !=null">ZU_THIRD_POSITION234_BAO_COUNT=#{zuThirdPosition234BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition235Count !=null">ZU_THIRD_POSITION235_COUNT=#{zuThirdPosition235Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition235BaoCount !=null">ZU_THIRD_POSITION235_BAO_COUNT=#{zuThirdPosition235BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition245Count !=null">ZU_THIRD_POSITION245_COUNT=#{zuThirdPosition245Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition245BaoCount !=null">ZU_THIRD_POSITION245_BAO_COUNT=#{zuThirdPosition245BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition345Count !=null">ZU_THIRD_POSITION345_COUNT=#{zuThirdPosition345Count,jdbcType=INTEGER},
+			</if>
+			<if test="zuThirdPosition345BaoCount !=null">ZU_THIRD_POSITION345_BAO_COUNT=#{zuThirdPosition345BaoCount,jdbcType=INTEGER},
+			</if>
+			<if test="zuFive20Acount !=null">ZU_FIVE20_ACOUNT=#{zuFive20Acount,jdbcType=INTEGER},</if>
+			<if test="zuFive30Acount !=null">ZU_FIVE30_ACOUNT=#{zuFive30Acount,jdbcType=INTEGER},</if>
+			<if test="zuFive10Acount !=null">ZU_FIVE10_ACOUNT=#{zuFive10Acount,jdbcType=INTEGER},</if>
+			<if test="zuFive5Acount !=null">ZU_FIVE5_ACOUNT=#{zuFive5Acount,jdbcType=INTEGER}</if>
+		</set>
+	</update>
+	<insert parameterType="com.fzu.demo.common.caiutils.CaiTimeStatis"
+		id="insertCaiTimeStatis">
+		INSERT INTO cq_time_lottery_statistics(open_date,
+		zu_third_position123_count, zu_third_position123_bao_count,
+		zu_third_position124_count, zu_third_position124_bao_count,
+		zu_third_position125_count, zu_third_position125_bao_count,
+		zu_third_position134_count, zu_third_position134_bao_count,
+		zu_third_position135_count, zu_third_position135_bao_count,
+		zu_third_position145_count, zu_third_position145_bao_count,
+		zu_third_position234_count, zu_third_position234_bao_count,
+		zu_third_position235_count, zu_third_position235_bao_count,
+		zu_third_position245_count, zu_third_position245_bao_count,
+		zu_third_position345_count, zu_third_position345_bao_count,
+		zu_five20_acount, zu_five30_acount, zu_five10_acount, zu_five5_acount,
+		zu_five120_acount)
+		VALUES (#{openDate, jdbcType=INTEGER},
+		#{zuThirdPosition123Count,
+		jdbcType=INTEGER},
+		#{zuThirdPosition123BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition124Count, jdbcType=INTEGER},
+		#{zuThirdPosition124BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition125Count, jdbcType=INTEGER},
+		#{zuThirdPosition125BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition134Count, jdbcType=INTEGER},
+		#{zuThirdPosition134BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition135Count, jdbcType=INTEGER},
+		#{zuThirdPosition135BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition145Count, jdbcType=INTEGER},
+		#{zuThirdPosition145BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition234Count, jdbcType=INTEGER},
+		#{zuThirdPosition234BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition235Count, jdbcType=INTEGER},
+		#{zuThirdPosition235BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition245Count, jdbcType=INTEGER},
+		#{zuThirdPosition245BaoCount, jdbcType=INTEGER},
+		#{zuThirdPosition345Count, jdbcType=INTEGER},
+		#{zuThirdPosition345BaoCount, jdbcType=INTEGER}, #{zuFive20Acount,
+		jdbcType=INTEGER}, #{zuFive30Acount, jdbcType=INTEGER},
+		#{zuFive10Acount,
+		jdbcType=INTEGER}, #{zuFive5Acount, jdbcType=INTEGER}
+		, #{zuFive120Acount, jdbcType=INTEGER} )
+	</insert>
+
+	<!-- 后台 查询举报评论列表 -->
+	<select id="queryCaiTimeStatisList" parameterType="com.fzu.demo.common.caiutils.CaiStaQuery"
+		resultMap="caiStaResultMap">
+		SELECT
+		<include refid="caiTimeStaColumn" />
+		FROM cq_time_lottery_statistics WHERE
+		open_date<![CDATA[>=]]>#{startDay,jdbcType=INTEGER}
+		AND
+		open_date<![CDATA[<=]]>#{endDay,jdbcType=INTEGER}
+		ORDER BY id ASC
+	</select>
+	<select id="queryLastestCaiTimeStatistics" resultMap="caiStaResultMap">
+		SELECT
+		<include refid="caiTimeStaColumn" />
+		FROM cq_time_lottery_statistics ORDER BY id desc limit 1
+	</select>
+
+	<insert id="insertCaiTimeStatisByBatch" parameterType="java.util.List">
+		INSERT INTO cq_time_lottery_statistics(open_date,
+		zu_third_position123_count, zu_third_position123_bao_count,
+		zu_third_position124_count, zu_third_position124_bao_count,
+		zu_third_position125_count, zu_third_position125_bao_count,
+		zu_third_position134_count, zu_third_position134_bao_count,
+		zu_third_position135_count, zu_third_position135_bao_count,
+		zu_third_position145_count, zu_third_position145_bao_count,
+		zu_third_position234_count, zu_third_position234_bao_count,
+		zu_third_position235_count, zu_third_position235_bao_count,
+		zu_third_position245_count, zu_third_position245_bao_count,
+		zu_third_position345_count, zu_third_position345_bao_count,
+		zu_five20_acount, zu_five30_acount, zu_five10_acount, zu_five5_acount
+		, zu_five120_acount)
+		VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{openDate, jdbcType=INTEGER},
+			#{item.zuThirdPosition123Count,
+			jdbcType=INTEGER},
+			#{item.zuThirdPosition123BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition124Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition124BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition125Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition125BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition134Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition134BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition135Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition135BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition145Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition145BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition234Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition234BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition235Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition235BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition245Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition245BaoCount, jdbcType=INTEGER},
+			#{item.zuThirdPosition345Count, jdbcType=INTEGER},
+			#{item.zuThirdPosition345BaoCount, jdbcType=INTEGER},
+			#{item.zuFive20Acount,jdbcType=INTEGER}, #{item.zuFive30Acount,
+			jdbcType=INTEGER}, #{item.zuFive10Acount,jdbcType=INTEGER},
+			#{item.zuFive5Acount, jdbcType=INTEGER}
+			,#{item.zuFive120Acount,jdbcType=INTEGER} )
+		</foreach>
+	</insert>
+
+	<select id="queryCaiTimeThirdStatisList" parameterType="com.fzu.demo.common.caiutils.CqTimeLottery"
+		resultType="com.fzu.demo.common.caiutils.CaiTimeStatisResult">
+		SELECT open_date openDate,
+		<if test="zuThirdPosition123 !=null and zuThirdPosition123 != ''">zu_third_position123 type,</if>
+		<if test="zuThirdPosition124 !=null and zuThirdPosition124 != ''">zu_third_position124 type,</if>
+		<if test="zuThirdPosition125 !=null and zuThirdPosition125 != ''">zu_third_position125 type,</if>
+		<if test="zuThirdPosition134 !=null and zuThirdPosition134 != ''">zu_third_position134 type,</if>
+		<if test="zuThirdPosition135 !=null and zuThirdPosition135 != ''">zu_third_position135 type,</if>
+		<if test="zuThirdPosition145 !=null and zuThirdPosition145 != ''">zu_third_position145 type,</if>
+		<if test="zuThirdPosition234 !=null and zuThirdPosition234 != ''">zu_third_position234 type,</if>
+		<if test="zuThirdPosition235 !=null and zuThirdPosition235 != ''">zu_third_position235 type,</if>
+		<if test="zuThirdPosition245 !=null and zuThirdPosition245 != ''">zu_third_position245 type,</if>
+		<if test="zuThirdPosition345 !=null and zuThirdPosition345 != ''">zu_third_position345 type,</if>
+		count(*) count FROM cq_time_lottery WHERE
+		<if test="zuThirdPosition123 !=null and zuThirdPosition123 != ''">zu_third_position123 in('组三','豹子')</if>
+		<if test="zuThirdPosition124 !=null and zuThirdPosition124 != ''">zu_third_position124 in('组三','豹子')</if>
+		<if test="zuThirdPosition125 !=null and zuThirdPosition125 != ''">zu_third_position125 in('组三','豹子')</if>
+		<if test="zuThirdPosition134 !=null and zuThirdPosition134 != ''">zu_third_position134 in('组三','豹子')</if>
+		<if test="zuThirdPosition135 !=null and zuThirdPosition135 != ''">zu_third_position135 in('组三','豹子')</if>
+		<if test="zuThirdPosition145 !=null and zuThirdPosition145 != ''">zu_third_position145 in('组三','豹子')</if>
+		<if test="zuThirdPosition234 !=null and zuThirdPosition234 != ''">zu_third_position234 in('组三','豹子')</if>
+		<if test="zuThirdPosition235 !=null and zuThirdPosition235 != ''">zu_third_position235 in('组三','豹子')</if>
+		<if test="zuThirdPosition245 !=null and zuThirdPosition245 != ''">zu_third_position245 in('组三','豹子')</if>
+		<if test="zuThirdPosition345 !=null and zuThirdPosition345 != ''">zu_third_position345 in('组三','豹子')</if>
+		and open_date=#{openDate, jdbcType=INTEGER}
+		GROUP by open_date ,
+		<if test="zuThirdPosition123 !=null and zuThirdPosition123 != ''">zu_third_position123</if>
+		<if test="zuThirdPosition124 !=null and zuThirdPosition124 != ''">zu_third_position124</if>
+		<if test="zuThirdPosition125 !=null and zuThirdPosition125 != ''">zu_third_position125</if>
+		<if test="zuThirdPosition134 !=null and zuThirdPosition134 != ''">zu_third_position134</if>
+		<if test="zuThirdPosition135 !=null and zuThirdPosition135 != ''">zu_third_position135</if>
+		<if test="zuThirdPosition145 !=null and zuThirdPosition145 != ''">zu_third_position145</if>
+		<if test="zuThirdPosition234 !=null and zuThirdPosition234 != ''">zu_third_position234</if>
+		<if test="zuThirdPosition235 !=null and zuThirdPosition235 != ''">zu_third_position235</if>
+		<if test="zuThirdPosition245 !=null and zuThirdPosition245 != ''">zu_third_position245</if>
+		<if test="zuThirdPosition345 !=null and zuThirdPosition345 != ''">zu_third_position345</if>
+		ORDER BY open_date desc
+	</select>
+
+	<select id="queryCaiTimeFiveStatisList" parameterType="com.fzu.demo.common.caiutils.CqTimeLottery"
+		resultType="com.fzu.demo.common.caiutils.CaiTimeStatisResult">
+		SELECT open_date openDate,zu_five type,
+		count(zu_five) count
+		FROM cq_time_lottery WHERE zu_five in('组20','组30','组10','组5','组120')
+		and
+		open_date=#{openDate, jdbcType=INTEGER}
+		GROUP by open_date ,zu_five
+		ORDER BY open_date desc
+	</select>
+	<delete id="deleteCaiStaByDate" parameterType="java.lang.Integer">
+		DELETE FROM
+		cq_time_lottery_statistics WHERE open_date=#{openDate,
+		jdbcType=INTEGER}
+	</delete>
+	<select id="queryCaiTimeFiveStatisByDay" parameterType="java.lang.Integer"
+		resultType="com.fzu.demo.common.caiutils.CaiTimeStatis">
+		SELECT * FROM cq_time_lottery_statistics WHERE open_date=#{openDate,jdbcType=INTEGER}
+	</select>
+</mapper>
