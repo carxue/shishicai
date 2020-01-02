@@ -33,7 +33,7 @@ public class EveryDayStatisticsTimer {
 	@Autowired
 	CaiTimeStatisDao caiTimeStatisDao;
 
-	private static Integer openDate = 20170101;
+	private static Integer openDate = 20191008;
 
 	@PostConstruct
 	public void initQueryDay() {
